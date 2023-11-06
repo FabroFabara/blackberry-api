@@ -1,14 +1,9 @@
-# Utiliza una imagen base de Java
-FROM openjdk:17
-
-# Establece el directorio de trabajo en /app
-WORKDIR /app
-
-# Copia el archivo JAR de la aplicación y su archivo .env (si es necesario)
-COPY target/*.jar /app/app.jar
-
-# Expone el puerto en el que la aplicación escuchará las solicitudes
+#
+# Build stage
+#
+FROM maven:3.8.3-openjdk-17 AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
 EXPOSE 8080
-
-# Comando para ejecutar la aplicación Spring Boot
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","/home/app/target/blackberry-api.jar"]

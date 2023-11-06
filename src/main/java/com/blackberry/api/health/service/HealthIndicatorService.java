@@ -1,6 +1,7 @@
 package com.blackberry.api.health.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public class HealthIndicatorService {
 
-    private final List<ServiceHealthIndicator> healthIndicatorList = null;
+    private final List<ServiceHealthIndicator> healthIndicatorList = new ArrayList<>();
 
     public Health health() {
         boolean isAllLive = healthIndicatorList.stream().allMatch(ServiceHealthIndicator::isHealth);
