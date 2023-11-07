@@ -24,6 +24,7 @@ To run the application in a Docker environment, use the following command in the
 
 ```shell
 docker-compose up
+```
 
 The application will be available at http://localhost:8080.
 
