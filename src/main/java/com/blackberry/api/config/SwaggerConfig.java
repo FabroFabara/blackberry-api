@@ -5,19 +5,20 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.security.SecurityScheme;
-import org.springdoc.core.GroupedOpenApi;
+
+import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
 
-    private static final String APP_DESCRIPTION = "This documentation belongs to the BlackBerry EDGE API ";
+    private static final String APP_DESCRIPTION = "This is a multi-tenant API that allows to list, create, retrieve details and execute commands on Cloud BCN deployments";
 
     @Bean
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
-                .group("BlackBerry EDGE API")
+                .group("BlackBerry Edge API's")
                 .pathsToMatch("/**")
                 .pathsToExclude("/admin/**")
                 .build();
@@ -33,7 +34,7 @@ public class SwaggerConfig {
 
     private Info apiEndPointsInfo() {
         return new Info()
-                .title("BlackBerry EDGE API")
+                .title("UEM Edge Backend API")
                 .description(APP_DESCRIPTION)
                 .version("1.0.0")
                 .license(new License().name("Apache 2.0").url("http://www.apache.org/licenses/LICENSE-2.0.html"));
