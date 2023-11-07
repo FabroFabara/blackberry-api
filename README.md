@@ -29,7 +29,8 @@ docker-compose up
 The application will be available at http://localhost:8080.
 
 ## Swagger Documentation
-API documentation is available through Swagger. You can access the documentation at http://localhost:8080/swagger-ui.html. Here, you can test and explore the API endpoints.
+API documentation is available through Swagger. You can access the documentation at http://localhost:8080/swagger-ui.html. 
+Here, you can test and explore the API endpoints.
 
 ## Building and Packaging the Application
 The application is built and packaged using Maven. The Dockerfile copies the source code and the pom.xml file to the container and then runs the mvn clean package command to build the executable JAR file. The resulting JAR is executed as a Spring Boot application.
