@@ -16,13 +16,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class HealthIndicatorService {
 
     private final List<ServiceHealthIndicator> healthIndicatorList;
-    
-    public HealthIndicatorService(List<ServiceHealthIndicator> healthIndicatorList) {
-        this.healthIndicatorList = healthIndicatorList;
-    }
+  
 
     public Health health() {
         boolean isAllLive = healthIndicatorList.stream().allMatch(ServiceHealthIndicator::isHealth);

@@ -17,18 +17,16 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/health")
 @Tag(name = "Health API Status", description = "API related to the health endpoint status")
 public class HealthIndicatorController {
 	
     private final HealthIndicatorService healthCheckService;
-    
-    public HealthIndicatorController(HealthIndicatorService healthCheckService) {
-    	this.healthCheckService = healthCheckService;
-    	
-    }
+   
 
     @GetMapping(path = "/status", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Save a new client", responses = {
